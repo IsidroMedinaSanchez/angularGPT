@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-audio-to-text-page',
+  selector: 'app-image-tunning-page',
   imports: [CommonModule],
-  templateUrl: './audioToTextPage.component.html',
+  templateUrl: './imageTunningPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AudioToTextPageComponent { }
+export default class ImageTunningPageComponent { }

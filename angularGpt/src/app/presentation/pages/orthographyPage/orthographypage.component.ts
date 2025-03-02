@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-image-generation-page',
+  selector: 'app-orthographyâge',
   imports: [CommonModule],
-  templateUrl: './imageGenerationPage.component.html',
+  templateUrl: './orthographyPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImageGenerationPageComponent { }
+export default class OrthographyâgeComponent { }
