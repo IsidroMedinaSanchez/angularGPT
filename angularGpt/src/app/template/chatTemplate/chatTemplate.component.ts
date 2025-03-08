@@ -5,37 +5,31 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ChatMessageComponent } from '@components/chat-bubles/chatMessage/chatMessage.component';
 import { MyMessageComponent } from '@components/chat-bubles/myMessage/myMessage.component';
 import { TextMessageBoxComponent } from '@components/text-boxes/textMessageBox/textMessageBox.component';
+import { TextMessageEvent } from '@components/text-boxes/textMessageBoxFile/textMessageBoxFile.component';
+import { TextMessageBoxEvent } from '@components/text-boxes/textMessageBoxSelect/textMessageBoxSelect.component';
 import { TypingLoaderComponent } from '@components/typingLoader/typingLoader.component';
-import {
-  TextMessageBoxFileComponent,
-  TextMessageEvent,
-} from '../../components/text-boxes/textMessageBoxFile/textMessageBoxFile.component';
-import {
-  TextMessageBoxEvent,
-  TextMessageBoxSelectComponent,
-} from '@components/text-boxes/textMessageBoxSelect/textMessageBoxSelect.component';
 import { Message } from 'app/presentation/interfaces/message.interface';
 import { OpenAiService } from 'app/presentation/services/openai.service';
 
 @Component({
-  selector: 'app-orthographyâge',
+  selector: 'app-chat-template',
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ChatMessageComponent,
     MyMessageComponent,
     TypingLoaderComponent,
     TextMessageBoxComponent,
-    TextMessageBoxFileComponent,
-    TextMessageBoxSelectComponent,
   ],
-  templateUrl: './orthographyPage.component.html',
+  templateUrl: './chatTemplate.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class OrthographyâgeComponent {
-  public messages = signal<Message[]>([{ text: 'Hola Mundo', isGpt: false }]);
+export class ChatTemplateComponent {
+  public messages = signal<Message[]>([]);
   public isLoading = signal(false);
   public _openAi = inject(OpenAiService);
 
@@ -43,11 +37,11 @@ export default class OrthographyâgeComponent {
     console.log(prompt);
   }
 
-  handleMessageWithFile({ prompt, file }: TextMessageEvent) {
-    console.log({ prompt, file });
-  }
+  // handleMessageWithFile({ prompt, file }: TextMessageEvent) {
+  //   console.log({ prompt, file });
+  // }
 
-  handleMessageWithSelect(event: TextMessageBoxEvent) {
-    console.log(event);
-  }
+  // handleMessageWithSelect(event: TextMessageBoxEvent) {
+  //   console.log(event);
+  // }
 }
